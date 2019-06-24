@@ -233,28 +233,7 @@ secure_tmp(){
   echo -e "\e[93m[+]\e[00m Securing /tmp Folder"
   echo -e "\e[34m---------------------------------------------------------------------------------------------------------\e[00m"
   echo ""
-  echo -n " ¿Did you Create a Separate /tmp partition during the Initial Installation? (y/n): "; read tmp_answer
-  if [ "$tmp_answer" == "n" ]; then
-      echo "We will create a FileSystem for the /tmp Directory and set Proper Permissions "
-      spinner
-      dd if=/dev/zero of=/usr/tmpDISK bs=1024 count=2048000
-      mkdir /tmpbackup
-      cp -Rpf /tmp /tmpbackup
-      mount -t tmpfs -o loop,noexec,nosuid,rw /usr/tmpDISK /tmp
-      chmod 1777 /tmp
-      cp -Rpf /tmpbackup/* /tmp/
-      rm -rf /tmpbackup
-      echo "/usr/tmpDISK  /tmp    tmpfs   loop,nosuid,nodev,noexec,rw  0 0" >> /etc/fstab
-      sudo mount -o remount /tmp
-      say_done
-  else
-      echo "Nice Going, Remember to set proper permissions in /etc/fstab"
-      echo ""
-      echo "Example:"
-      echo ""
-      echo "/dev/sda4   /tmp   tmpfs  loop,nosuid,noexec,rw  0 0 "
-      say_done
-  fi
+ 
 }
 
 ##############################################################################################################
