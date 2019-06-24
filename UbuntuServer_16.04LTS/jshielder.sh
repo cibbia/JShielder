@@ -1097,7 +1097,7 @@ set_grubpassword(){
   echo ""
   echo "It is recommended to set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)"
   echo ""
-  echo -n " Do you want to set a GRUB Bootloader Password? (y/n): " ; read grub_answer
+  echo " Do you want to set a GRUB Bootloader Password? (y/n): " ; read grub_answer
   if [ "$grub_answer" == "y" ]; then
     grub-mkpasswd-pbkdf2 | tee grubpassword.tmp
     grubpassword=$(cat grubpassword.tmp | sed -e '1,2d' | cut -d ' ' -f7)
