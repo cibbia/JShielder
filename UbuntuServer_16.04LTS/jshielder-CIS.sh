@@ -143,13 +143,13 @@ aideinit
 clear
 f_banner
 
-echo -e ""
-echo -e "Securing Boot Settings"
-spinner
-sleep 2
+#echo -e ""
+#echo -e "Securing Boot Settings"
+#spinner
+#s#leep 2
 
-chown root:root /boot/grub/grub.cfg
-chmod og-rwx /boot/grub/grub.cfg
+#chown root:root /boot/grub/grub.cfg
+#chmod og-rwx /boot/grub/grub.cfg
 
 #1.4.2 Ensure bootloader password is set (Scored)
 
@@ -291,8 +291,8 @@ apt-get remove telnet
 
 #3.3.3 Ensure IPv6 is disabled (Not Scored)
 
-sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="ipv6.disable=1"/g' /etc/default/grub
-update-grub
+#sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="ipv6.disable=1"/g' /etc/default/grub
+#update-grub
 
 #3.4 TCP Wrappers
 #.4.1 Ensure TCP Wrappers is installed (Scored)
@@ -399,7 +399,7 @@ systemctl enable auditd
 
 #4.1.3 Ensure auditing for processes that start prior to auditd is enabled (Scored)
 
-sed -i 's/GRUB_CMDLINE_LINUX="ipv6.disable=1"/GRUB_CMDLINE_LINUX="ipv6.disable=1\ audit=1"/g' /etc/default/grub
+#sed -i 's/GRUB_CMDLINE_LINUX="ipv6.disable=1"/GRUB_CMDLINE_LINUX="ipv6.disable=1\ audit=1"/g' /etc/default/grub
 
 #4.1.4 Ensure events that modify date and time information are collected(Scored)
 #4.1.5 Ensure events that modify user/group information are collected (Scored)
